@@ -25,11 +25,11 @@ function Home() {
   return (
     <NextUIProvider>
       <main>
-        {showOnboardingSteps && (
+        {showOnboardingSteps ? (
           <Onboarding onFinish={disableOnboardingSteps} />
+        ) : (
+          <MentorsList />
         )}
-
-        <MentorsList />
       </main>
     </NextUIProvider>
   )
