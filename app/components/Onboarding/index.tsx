@@ -1,13 +1,13 @@
 import { useState } from 'react'
-import Step01 from './components/Step01'
-import Step02 from './components/Step02'
-import Step03 from './components/Step03'
+import Step01 from './steps/Step01'
+import Step02 from './steps/Step02'
+import Step03 from './steps/Step03'
 
-type Onboarding = {
+type OnboardingProps = {
   onFinish: () => void
 }
 
-function Onboarding({ onFinish }: Onboarding) {
+function Onboarding({ onFinish }: OnboardingProps) {
   const steps = [Step01, Step02, Step03]
   const [step, setStep] = useState(0)
 

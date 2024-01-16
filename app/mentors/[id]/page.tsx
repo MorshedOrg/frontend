@@ -1,7 +1,20 @@
 import Link from 'next/link'
 import styles from './page.module.css'
 
-function MentorSingle() {
+type Todo = {
+  id: number
+}
+
+export const generateStaticParams = async () => {
+  const data = await fetch('https://jsonplaceholder.typicode.com/todos')
+  const todos: Todo[] = await data.json()
+
+  return todos.map((todo) => ({ id: String(todo.id) }))
+}
+
+export default function Mentor({ params }: { params: { id: string } }) {
+  const { id } = params
+
   return (
     <section className={styles['mentor-single']}>
       <div className={styles.mentor}>
@@ -14,7 +27,7 @@ function MentorSingle() {
             {/* <img src="" alt="" className={styles.mentor__avatar} /> */}
           </div>
 
-          <Link href="/mentors/1" className={styles.mentor__name}>
+          <Link href={`/mentors/${id}`} className={styles.mentor__name}>
             یاسین سیلاوی
           </Link>
           <span className={styles.mentor__bio}>
@@ -37,9 +50,14 @@ function MentorSingle() {
         </div>
       </div>
 
-      <a href="https://t.me/ysilavi" rel="noopener noreferrer" target="_blank" className={styles['mentor-single__cta']}>صحبت کنیم</a>
+      <a
+        href="https://t.me/ysilavi"
+        rel="noopener noreferrer"
+        target="_blank"
+        className={styles['mentor-single__cta']}
+      >
+        صحبت کنیم
+      </a>
     </section>
   )
 }
-
-export default MentorSingle

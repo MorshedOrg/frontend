@@ -1,0 +1,1 @@
+export const IS_FIRST_RUN = typeof localStorage !== 'undefined' && !localStorage.getItem('isFirstRun')
