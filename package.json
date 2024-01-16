@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@nextui-org/react": "^2.2.9",
+    "@stylexjs/stylex": "^0.4.1",
     "clsx": "^2.1.0",
     "framer-motion": "^10.16.16",
     "next": "^13.4.19",
@@ -17,6 +18,9 @@
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@stylexjs/babel-plugin": "^0.4.1",
+    "@stylexjs/eslint-plugin": "^0.4.1",
+    "@stylexjs/nextjs-plugin": "^0.4.1",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
