@@ -1,81 +1,79 @@
-.mentor-single {
+.mentor {
   display: flex;
-  height: 100vh;
+  padding: 6vw 4vw;
+  align-items: center;
   flex-direction: column;
 }
 
-.mentor__banner-box {
-  height: 100px;
-  position: relative;
-  background-color: #eeeeee;
-}
-
-.mentor__banner {
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-}
-
-.mentor__content {
-  padding: 16px;
-  position: relative;
-}
-
-.mentor__avatar-box {
-  --width: 80px;
-
+.mentor__image-box {
+  width: 120px;
+  height: 120px;
   overflow: hidden;
-  position: absolute;
-  width: var(--width);
-  height: var(--width);
-  background-color: tomato;
-  top: calc(var(--width) / -2);
-  border-radius: calc(var(--width) / 2);
+  border-radius: 60px;
 }
 
-.mentor__avatar {
+.mentor__image {
   top: 0;
   right: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  position: absolute;
 }
 
 .mentor__name {
-  display: block;
-  margin-top: 32px;
+  font-size: 20px;
+  margin-top: 24px;
   font-weight: bold;
 }
 
-.mentor__bio {
-  font-size: 14px;
+.mentor__expertise {
+  width: 100%;
+  margin-top: 32px;
 }
 
-.mentor__categories {
-  gap: 6px;
-  width: 80%;
-  display: flex;
-  flex-wrap: wrap;
+
+.expertise__box {
+  padding: 64px 16px;
+  background-color: #d4eaf750;
+}
+
+.expertise__title {
+  font-size: 16px;
+  color: #1d1c1c;
+  font-weight: bold;
+}
+
+.expertise__description {
+  font-size: 14px;
+  color: #313d44;
   margin-top: 16px;
 }
 
-.mentor__category::before {
-  content: '#';
+.actions {
+  width: 100%;
+  margin-top: 32px;
 }
 
-.mentor__category {
-  font-size: 12px;
-  border-radius: 4px;
+.actions__action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.mentor-single__cta {
-  color: white;
+.actions__action:not(:first-child) {
+  margin-top: 8px;
+}
+
+.actions__action--primary {
   padding: 16px 0;
-  margin-top: auto;
-  text-align: center;
-  background-color: royalblue;
+  color: #ffffff;
+  font-weight: bold;
+  background-color: #25b1bf;
+}
+
+.actions__action--secondary {
+  padding: 16px 0;
+  color: #25b1bf;
+  font-weight: bold;
+  border: 1px solid #25b1bf;
 }
