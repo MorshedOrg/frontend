@@ -8,11 +8,11 @@ function Step03({ onChange }: Step03Props) {
       <div className="bg-cyan-500 h-[60vh]"></div>
 
       <div className="p-12">
-        <h1 className="text-black font-bold text-xl ml-20">
+        <h1 className="text-black font-bold text-xl w-[200px]">
           الان دیگه وقتشه انجامش بدی
         </h1>
 
-        <span className="block text-gray-600 text-sm mt-3 ml-16">
+        <span className="block text-gray-600 text-sm mt-3 w-[180px]">
           دوست داری نقاشی بکشی؟ امروز تجربه‌اش کن!
         </span>
 
