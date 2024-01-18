@@ -80,6 +80,10 @@ jobs:
         with:
           path: ./out
 
+  # Secrets
+  env:
+    NEXT_PUBLIC_POSTHOG_KEY: ${{ secrets.POSTHOG_KEY }}
+
   # Deployment job
   deploy:
     environment:
