@@ -24,6 +24,11 @@ function Home() {
     setShowOnboardingSteps(false)
     localStorage.setItem('isFirstRun', 'false')
     posthog.capture('onboarding', { done: true })
+
+    console.log(
+      'process.env.NEXT_PUBLIC_POSTHOG_KEY',
+      process.env.NEXT_PUBLIC_POSTHOG_KEY
+    )  
   }
 
   return (

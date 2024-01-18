@@ -10,11 +10,6 @@ export function init() {
     return
   }
 
-  console.log(
-    'process.env.NEXT_PUBLIC_POSTHOG_KEY',
-    process.env.NEXT_PUBLIC_POSTHOG_KEY
-  )
-
   posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {
     api_host: 'https://us.posthog.com',
     loaded: onPostHogLoad,
