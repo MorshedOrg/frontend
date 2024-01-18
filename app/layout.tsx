@@ -1,6 +1,7 @@
 import 'swiper/css'
 import './globals.css'
 import type { Metadata } from 'next'
+import { init as initPostHog } from '@/configs/posthog'
 
 export const metadata: Metadata = {
   title: 'مرشد',
@@ -10,6 +11,8 @@ export const metadata: Metadata = {
 type RootLayoutTypes = {
   children: React.ReactNode
 }
+
+initPostHog()
 
 function RootLayout({ children }: RootLayoutTypes) {
   return (

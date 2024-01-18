@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import posthog from 'posthog-js'
 import styles from './page.module.scss'
 import { useEffect, useState } from 'react'
 import Onboarding from './components/Onboarding'
@@ -22,6 +23,7 @@ function Home() {
   const disableOnboardingSteps = () => {
     setShowOnboardingSteps(false)
     localStorage.setItem('isFirstRun', 'false')
+    posthog.capture('onboarding', { done: true })
   }
 
   return (
