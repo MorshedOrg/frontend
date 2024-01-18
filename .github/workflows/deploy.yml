@@ -91,5 +91,5 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         env:
-          NEXT_PUBLIC_POSTHOG_KEY: ${{ secrets.POSTHOG_KEY }}
+          NEXT_PUBLIC_POSTHOG_KEY: ${{ env.POSTHOG_KEY }}
         uses: actions/deploy-pages@v2
