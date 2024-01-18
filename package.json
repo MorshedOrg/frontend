@@ -10,18 +10,14 @@
   },
   "dependencies": {
     "@nextui-org/react": "^2.2.9",
-    "@stylexjs/stylex": "^0.4.1",
     "clsx": "^2.1.0",
     "framer-motion": "^10.16.16",
-    "next": "^13.4.19",
+    "next": "^13.5.6",
     "react": "^18",
     "react-dom": "^18",
     "swiper": "^11.0.5"
   },
   "devDependencies": {
-    "@stylexjs/babel-plugin": "^0.4.1",
-    "@stylexjs/eslint-plugin": "^0.4.1",
-    "@stylexjs/nextjs-plugin": "^0.4.1",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
@@ -29,6 +25,7 @@
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
     "postcss": "^8",
+    "sass": "^1.69.7",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
   }

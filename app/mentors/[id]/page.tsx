@@ -1,8 +1,6 @@
-'use client'
-
 import clsx from 'clsx'
-import styles from './page.module.css'
-import { Swiper, SwiperSlide } from 'swiper/react'
+import styles from './page.module.scss'
+import ExpertiseSlider from '../components/ExpertiseSlider'
 
 type Todo = {
   id: number
@@ -30,44 +28,7 @@ export default function Mentor({ params }: { params: { id: string } }) {
 
       <h1 className={styles.mentor__name}>یاسین سیلاوی</h1>
 
-      <Swiper
-        spaceBetween={8}
-        slidesPerView={1.1}
-        className={clsx(styles.expertise, styles.mentor__expertise)}
-      >
-        <SwiperSlide className={styles.expertise__box}>
-          <h3 className={styles.expertise__title}>برنامه نویسی</h3>
-
-          <p className={styles.expertise__description}>
-            اگه میخوای برنامه نویسی رو شروع کنی، میخوای خودت رو به عنوان یه
-            برنامه نویس ارتقا بدی یا حتی اگه دوست داری با یه برنامه نویس دیگه گپ
-            بزنی و اخلاق کاریش رو بپرسی میتونی با <span>یاسین سیلاوی</span> صحبت
-            کنی
-          </p>
-        </SwiperSlide>
-
-        <SwiperSlide className={styles.expertise__box}>
-          <h3 className={styles.expertise__title}>نویسندگی</h3>
-
-          <p className={styles.expertise__description}>
-            اگه میخوای برنامه نویسی رو شروع کنی، میخوای خودت رو به عنوان یه
-            برنامه نویس ارتقا بدی یا حتی اگه دوست داری با یه برنامه نویس دیگه گپ
-            بزنی و اخلاق کاریش رو بپرسی میتونی با <span>یاسین سیلاوی</span> صحبت
-            کنی
-          </p>
-        </SwiperSlide>
-
-        <SwiperSlide className={styles.expertise__box}>
-          <h3 className={styles.expertise__title}>برنامه نویسی</h3>
-
-          <p className={styles.expertise__description}>
-            اگه میخوای برنامه نویسی رو شروع کنی، میخوای خودت رو به عنوان یه
-            برنامه نویس ارتقا بدی یا حتی اگه دوست داری با یه برنامه نویس دیگه گپ
-            بزنی و اخلاق کاریش رو بپرسی میتونی با <span>یاسین سیلاوی</span> صحبت
-            کنی
-          </p>
-        </SwiperSlide>
-      </Swiper>
+      <ExpertiseSlider className={styles.mentor__expertise} />
 
       <div className={styles.actions}>
         <a

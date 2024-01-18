@@ -1,0 +1,64 @@
+.container {
+  display: flex;
+  padding: 8vw 4vw;
+  align-items: center;
+  flex-direction: column;
+}
+
+.image {
+  width: 150px;
+  height: 150px;
+  border-radius: 75px;
+  background-color: #cccbc8;
+}
+
+.title {
+  font-size: 24px;
+  margin-top: 24px;
+  color: #1d1c1c;
+  font-weight: bold;
+  text-align: center;
+}
+
+.title--bold {
+  color: #1d1c1c;
+}
+
+.subtitle {
+  margin-top: 16px;
+  color: #313d44;
+  text-align: center;
+}
+
+.mentors {
+  padding: 6vw 4vw;
+}
+
+.newMentor {
+  display: flex;
+  margin: 6vw 4vw;
+  padding: 6vw 4vw;
+  align-items: center;
+  flex-direction: column;
+  background-color: #d4eaf750;
+}
+
+.newMentorTitle {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.newMentorDescription {
+  margin-top: 8px;
+  color: #313d44;
+  text-align: center;
+}
+
+.newMentorCta {
+  font-size: 14px;
+  margin-top: 32px;
+  color: #f5f5f5;
+  border-radius: 4px;
+  padding: 10px 16px;
+  background-color: #25b1bf;
+}
