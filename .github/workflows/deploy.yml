@@ -29,6 +29,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
+      NEXT_PUBLIC_GTM_ID: ${{ secrets.GTM_ID }}
       NEXT_PUBLIC_POSTHOG_KEY: ${{ secrets.POSTHOG_KEY }}
     steps:
       - name: Checkout
