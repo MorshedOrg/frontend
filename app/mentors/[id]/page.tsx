@@ -1,6 +1,6 @@
-import clsx from 'clsx'
 import styles from './page.module.scss'
 import ExpertiseSlider from '../components/ExpertiseSlider'
+import { MentorsPageActions } from './components/MentorPageActions'
 
 type Todo = {
   id: number
@@ -30,31 +30,7 @@ export default function Mentor({ params }: { params: { id: string } }) {
 
       <ExpertiseSlider className={styles.mentor__expertise} />
 
-      <div className={styles.actions}>
-        <a
-          href={`https://telegram.me/share/url?url=https://morshedorg.github.io/frontend/mentors/${id}&text=اگه علاقه داری راجع‌به برنامه‌نویسی، نویسندگی یا روانشناسی گپ بزنی حتما یه سری به «یاسین سیلاوی» بزن`}
-          rel="noopener noreferrer"
-          target="_blank"
-          className={clsx(
-            styles['actions__action'],
-            styles['actions__action--secondary']
-          )}
-        >
-          معرفی به بقیه
-        </a>
-
-        <a
-          href="https://t.me/ysilavi"
-          rel="noopener noreferrer"
-          target="_blank"
-          className={clsx(
-            styles['actions__action'],
-            styles['actions__action--primary']
-          )}
-        >
-          گپ بزنیم
-        </a>
-      </div>
+      <MentorsPageActions id={id} className={styles.mentor__actions} />
     </section>
   )
 }

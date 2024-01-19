@@ -29,33 +29,9 @@
     width: 100%;
     margin-top: 32px;
   }
-}
 
-.actions {
-  width: 100%;
-  margin-top: 32px;
-
-  &__action {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    &--primary {
-      padding: 16px 0;
-      color: #ffffff;
-      font-weight: bold;
-      background-color: #25b1bf;
-    }
-
-    &--secondary {
-      padding: 16px 0;
-      color: #25b1bf;
-      font-weight: bold;
-      border: 1px solid #25b1bf;
-    }
-
-    &:not(:first-child) {
-      margin-top: 8px;
-    }
+  &__actions {
+    width: 100%;
+    margin-top: 32px;
   }
 }
