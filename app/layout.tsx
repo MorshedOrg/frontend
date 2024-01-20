@@ -1,6 +1,11 @@
 import 'swiper/css'
 import './globals.css'
 import type { Metadata } from 'next'
+import localFont from 'next/font/local'
+
+const Estedad = localFont({
+  src: '../public/static/fonts/Estedad/Estedad-FD.woff2',
+})
 
 export const metadata: Metadata = {
   title: 'مرشد',
@@ -15,9 +20,6 @@ function RootLayout({ children }: RootLayoutTypes) {
   return (
     <html lang="fa-IR" dir="rtl">
       <head>
-        <link rel="preconnect" href="//fdn.fontcdn.ir" />
-        <link rel="preconnect" href="//v1.fontapi.ir" />
-        <link href="https://v1.fontapi.ir/css/Estedad" rel="stylesheet" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -39,7 +41,7 @@ function RootLayout({ children }: RootLayoutTypes) {
         ></script> */}
       </head>
 
-      <body>{children}</body>
+      <body className={Estedad.className}>{children}</body>
     </html>
   )
 }
