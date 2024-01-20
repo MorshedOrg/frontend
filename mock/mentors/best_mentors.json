@@ -1,0 +1,38 @@
+[
+  {
+    "id": 0,
+    "name": "علی صحفی",
+    "role": "برنامه‌نویس",
+    "expertise": ["برنامه‌نویسی"],
+    "photo": "https://media.licdn.com/dms/image/C4D03AQHLWaYidNzgmg/profile-displayphoto-shrink_200_200/0/1577009769202?e=1710979200&v=beta&t=CDWo-OmFtkVSLcOY9k7_SPgkW6rm4W_2U55WnbcgSGo",
+    "contacts": {
+      "telegram": "https://t.me/s_ali_s",
+      "eitta": "https://web.eitaa.com/#@sed_ali_s",
+      "email": "#"
+    }
+  },
+  {
+    "id": 1,
+    "name": "حسام کشیکیان",
+    "role": "مدیر محصول",
+    "expertise": ["مدیر محصول"],
+    "photo": "https://media.licdn.com/dms/image/D4D03AQGRpiPJLS9uFw/profile-displayphoto-shrink_100_100/0/1699016545337?e=1710979200&v=beta&t=6eFQm9M9HTD3c7lzutlb6HjivuaAQi7b3wEW9fyvUpc",
+    "contacts": {
+      "telegram": "https://t.me/am1rhesam",
+      "eitta": "#",
+      "email": "#"
+    }
+  },
+  {
+    "id": 2,
+    "name": "داود قره گزلو",
+    "role": "مدرس زبان",
+    "expertise": ["مدرس زبان"],
+    "photo": "https://picsum.photos/202/202",
+    "contacts": {
+      "telegram": "https://t.me/Qara_Dove",
+      "eitta": "#",
+      "email": "#"
+    }
+  }
+]

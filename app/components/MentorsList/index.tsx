@@ -1,15 +1,15 @@
 import MentorCard from '../MentorCard'
+import { type Mentor } from '@/types/mentor'
 import styles from './MentorsList.module.scss'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 type MentorsListProps = {
   title: string
+  mentors: Mentor[]
   className?: string
 }
 
-export default function MentorsList({ title, className }: MentorsListProps) {
-  const mentors = [{ id: 1 }, { id: 2 }, { id: 3 }]
-
+export default function MentorsList({ title, mentors, className }: MentorsListProps) {
   return (
     <section className={className}>
       <h2 className={styles.title}>{title}</h2>

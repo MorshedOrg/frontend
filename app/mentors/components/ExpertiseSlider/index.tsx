@@ -5,45 +5,38 @@ import styles from './ExpertiseSlider.module.scss'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 type ExpertiseSlider = {
+  expertise: string[]
   className?: string
 }
 
-export default function ExpertiseSlider({ className }: ExpertiseSlider) {
+// prettier-ignore
+const expertiseText: Record<string, string> = {
+  'برنامه‌نویسی':
+    'میخوای برنامه‌نویسی رو شروع کنی؟ دوست داری خودت رو به عنوان یه برنامه‌نویس ارتقا بدی؟ یا شایدم فقط میخوای بدونی بازار کار برنامه‌نویس‌ها چطوریه؟ اگه دوست داری جواب این سوالا رو بگیری وقتشه با یه برنامه‌نویس مشورت کنی!',
+  
+}
+
+export default function ExpertiseSlider({
+  expertise,
+  className,
+}: ExpertiseSlider) {
+  console.log(expertise)
+
   return (
     <Swiper
       spaceBetween={8}
       slidesPerView={1.1}
       className={clsx(styles['expertise-slider'], className)}
     >
-      <SwiperSlide className={styles.expertise}>
-        <h3 className={styles.expertise__title}>برنامه نویسی</h3>
+      {expertise.map((e, idx) => (
+        <SwiperSlide key={idx} className={styles.expertise}>
+          <h3 className={styles.expertise__title}>{e}</h3>
 
-        <p className={styles.expertise__description}>
-          اگه میخوای برنامه نویسی رو شروع کنی، میخوای خودت رو به عنوان یه برنامه
-          نویس ارتقا بدی یا حتی اگه دوست داری با یه برنامه نویس دیگه گپ بزنی و
-          اخلاق کاریش رو بپرسی میتونی با <span>یاسین سیلاوی</span> صحبت کنی
-        </p>
-      </SwiperSlide>
-
-      <SwiperSlide className={styles.expertise}>
-        <h3 className={styles.expertise__title}>نویسندگی</h3>
-
-        <p className={styles.expertise__description}>
-          اگه میخوای برنامه نویسی رو شروع کنی، میخوای خودت رو به عنوان یه برنامه
-          نویس ارتقا بدی یا حتی اگه دوست داری با یه برنامه نویس دیگه گپ بزنی و
-          اخلاق کاریش رو بپرسی میتونی با <span>یاسین سیلاوی</span> صحبت کنی
-        </p>
-      </SwiperSlide>
-
-      <SwiperSlide className={styles.expertise}>
-        <h3 className={styles.expertise__title}>برنامه نویسی</h3>
-
-        <p className={styles.expertise__description}>
-          اگه میخوای برنامه نویسی رو شروع کنی، میخوای خودت رو به عنوان یه برنامه
-          نویس ارتقا بدی یا حتی اگه دوست داری با یه برنامه نویس دیگه گپ بزنی و
-          اخلاق کاریش رو بپرسی میتونی با <span>یاسین سیلاوی</span> صحبت کنی
-        </p>
-      </SwiperSlide>
+          {!!expertiseText[e] && (
+            <p className={styles.expertise__description}>{expertiseText[e]}</p>
+          )}
+        </SwiperSlide>
+      ))}
     </Swiper>
   )
 }

@@ -2,14 +2,24 @@
 
 import clsx from 'clsx'
 import posthog from 'posthog-js'
+import type { Contacts } from '@/types/mentor'
 import styles from './MentorPageActions.module.scss'
 
 type MentorsPageActionsProps = {
   id: string
+  name: string
+  expertise: string[]
+  contacts: Contacts
   className?: string
 }
 
-export function MentorsPageActions({ id, className }: MentorsPageActionsProps) {
+export function MentorsPageActions({
+  id,
+  name,
+  expertise,
+  contacts,
+  className,
+}: MentorsPageActionsProps) {
   const onShareClick = () => {
     posthog.capture('share', { id })
   }
@@ -18,10 +28,18 @@ export function MentorsPageActions({ id, className }: MentorsPageActionsProps) {
     posthog.capture('cta', { id })
   }
 
+  const generateTelegramShareUrl = (
+    id: string,
+    name: string,
+    expertise: string[]
+  ) => {
+    return `https://telegram.me/share/url?url=https://morshedorg.github.io/frontend/mentors/${id}&text=اگه علاقه داری راجع‌به ${expertise.join(' یا ')} گپ بزنی حتما یه سری به «${name}» بزن`
+  }
+
   return (
     <div className={clsx(styles.actions, className)}>
       <a
-        href={`https://telegram.me/share/url?url=https://morshedorg.github.io/frontend/mentors/${id}&text=اگه علاقه داری راجع‌به برنامه‌نویسی، نویسندگی یا روانشناسی گپ بزنی حتما یه سری به «یاسین سیلاوی» بزن`}
+        href={generateTelegramShareUrl(id, name, expertise)}
         rel="noopener noreferrer"
         target="_blank"
         className={clsx(
@@ -34,7 +52,7 @@ export function MentorsPageActions({ id, className }: MentorsPageActionsProps) {
       </a>
 
       <a
-        href="https://t.me/ysilavi"
+        href={contacts.telegram}
         rel="noopener noreferrer"
         target="_blank"
         className={clsx(

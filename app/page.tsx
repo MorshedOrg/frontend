@@ -9,6 +9,10 @@ import { NextUIProvider } from '@nextui-org/react'
 import MentorsList from './components/MentorsList'
 import { IS_FIRST_RUN } from '@/configs/environment'
 
+import bestMentors from '@/mock/mentors/best_mentors.json'
+import programmingMentors from '@/mock/mentors/best_mentors.json'
+
+
 function Home() {
   const [showOnboardingSteps, setShowOnboardingSteps] = useState(false)
 
@@ -43,9 +47,9 @@ function Home() {
               </span>
             </div>
 
-            <MentorsList title="منتورهای برتر" className={styles.mentors} />
+            <MentorsList title="منتورهای برتر" mentors={bestMentors} className={styles.mentors} />
 
-            <MentorsList title="برنامه‌نویسی" className={styles.mentors} />
+            <MentorsList title="برنامه‌نویسی" mentors={programmingMentors} className={styles.mentors} />
 
             <div className={styles.newMentor}>
               <h2 className={styles.newMentorTitle}>

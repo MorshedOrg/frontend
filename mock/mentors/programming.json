@@ -1,0 +1,38 @@
+[
+  {
+    "id": 0,
+    "name": "علی صحفی",
+    "role": "برنامه‌نویس",
+    "expertise": ["برنامه‌نویسی"],
+    "photo": "https://media.licdn.com/dms/image/C4D03AQHLWaYidNzgmg/profile-displayphoto-shrink_200_200/0/1577009769202?e=1710979200&v=beta&t=CDWo-OmFtkVSLcOY9k7_SPgkW6rm4W_2U55WnbcgSGo",
+    "contacts": {
+      "telegram": "https://t.me/s_ali_s",
+      "eitta": "https://web.eitaa.com/#@sed_ali_s",
+      "email": "#"
+    }
+  },
+  {
+    "id": 1,
+    "name": "یاسین سیلاوی",
+    "role": "برنامه‌نویس",
+    "expertise": ["برنامه‌نویسی"],
+    "photo": "https://media.licdn.com/dms/image/D4D35AQENRCTpPlMONA/profile-framedphoto-shrink_100_100/0/1702137508160?e=1706353200&v=beta&t=69e7H6wji07_DZ-FK1Ritjag6HxaJGtHZ-DeJKzivAY",
+    "contacts": {
+      "telegram": "https://t.me/ysilavi",
+      "eitta": "https://web.eitaa.com/#@ysilavi",
+      "email": "mailto:ys.silavi@gmail.com"
+    }
+  },
+  {
+    "id": 2,
+    "name": "یاسین سیلاوی",
+    "role": "برنامه‌نویس",
+    "expertise": ["برنامه‌نویسی"],
+    "photo": "https://media.licdn.com/dms/image/D4D35AQENRCTpPlMONA/profile-framedphoto-shrink_100_100/0/1702137508160?e=1706353200&v=beta&t=69e7H6wji07_DZ-FK1Ritjag6HxaJGtHZ-DeJKzivAY",
+    "contacts": {
+      "telegram": "https://t.me/ysilavi",
+      "eitta": "https://web.eitaa.com/#@ysilavi",
+      "email": "mailto:ys.silavi@gmail.com"
+    }
+  }
+]
