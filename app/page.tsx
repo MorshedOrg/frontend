@@ -13,7 +13,7 @@ function Home() {
   const [showOnboardingSteps, setShowOnboardingSteps] = useState(false)
 
   useEffect(() => {
-    if (IS_FIRST_RUN) {
+    if (IS_FIRST_RUN()) {
       setShowOnboardingSteps(true)
     }
 
@@ -24,11 +24,6 @@ function Home() {
     setShowOnboardingSteps(false)
     localStorage.setItem('isFirstRun', 'false')
     posthog.capture('onboarding', { done: true })
-
-    console.log(
-      'process.env.NEXT_PUBLIC_POSTHOG_KEY',
-      process.env.NEXT_PUBLIC_POSTHOG_KEY
-    )  
   }
 
   return (
@@ -40,29 +35,17 @@ function Home() {
           <>
             <div className={styles.container}>
               <p className={styles.title}>
-                یک عنوان هیجان انگیز که
-                <span className={styles['title--bold']}>
-                  {' '}
-                  اتفاقا طولانی{' '}
-                </span>
-                هم هست!
+                اگه دوست داری با کسی راجع‌بهش حرف بزنی الان وقتشه!
               </p>
 
               <span className={styles.subtitle}>
-                یه متن زیر عنوان یکمی کم تر هیجان انگیز ولی به اندازه کافی کامل
-                کننده
+                اینجا کلی آدم خفن و با تجربه رو لیست کردیم که می‌تونن بهت کمک کنن
               </span>
             </div>
 
-            <MentorsList
-              title="منتورهای برتر"
-              className={styles.mentors}
-            />
+            <MentorsList title="منتورهای برتر" className={styles.mentors} />
 
-            <MentorsList
-              title="برنامه‌نویسی"
-              className={styles.mentors}
-            />
+            <MentorsList title="برنامه‌نویسی" className={styles.mentors} />
 
             <div className={styles.newMentor}>
               <h2 className={styles.newMentorTitle}>
@@ -73,7 +56,12 @@ function Home() {
                 بذارید
               </span>
 
-              <Link href="#" className={styles.newMentorCta}>
+              <Link
+                href="https://t.me/ysilavi"
+                rel="noopener noreferrer"
+                target="_blank"
+                className={styles.newMentorCta}
+              >
                 ارتباط با ما
               </Link>
             </div>
