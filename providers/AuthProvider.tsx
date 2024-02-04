@@ -9,9 +9,13 @@ interface AuthContextValues {
 
 const AuthContext = createContext<AuthContextValues>({})
 
-export function useAuthProvider() {
+export function useAuthContext() {
   const context = useContext(AuthContext)
-
+  
+  if (context === undefined) {
+    throw new Error('useAuthContext was used outside of its Provider')
+  }
+  
   return context
 }
 

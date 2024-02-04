@@ -1,9 +1,10 @@
 'use client'
 
 import clsx from 'clsx'
-import { useForm, SubmitHandler } from 'react-hook-form'
-import { useAuthProvider } from '@/providers/AuthProvider'
+import { useMemo } from 'react'
 import { useRouter } from 'next/navigation'
+import { useForm, SubmitHandler } from 'react-hook-form'
+import { useAuthContext } from '@/providers/AuthProvider'
 
 type Inputs = {
   phone: string
@@ -11,13 +12,13 @@ type Inputs = {
 
 export default function RegisterPage() {
   const router = useRouter()
-  const { setPhone } = useAuthProvider()
+  const { phone, setPhone } = useAuthContext()
   const {
     register,
     clearErrors,
     handleSubmit,
     formState: { errors },
-  } = useForm<Inputs>()
+  } = useForm<Inputs>({ defaultValues: useMemo(() => ({ phone }), [phone]) })
 
   const onFormSubmit: SubmitHandler<Inputs> = (data) => {
     clearErrors()
@@ -28,7 +29,7 @@ export default function RegisterPage() {
   return (
     <form
       onSubmit={handleSubmit(onFormSubmit)}
-      className="flex flex-col h-[100vh] p-6"
+      className="flex flex-col h-screen p-6"
     >
       <h1 className="font-bold text-2xl mt-8">ثبت نام</h1>
       <span className="mt-2 text-gray-600">
@@ -65,7 +66,9 @@ export default function RegisterPage() {
         </div>
       </label>
 
-      <button className="btn btn-primary mt-auto">ارسال کد تایید</button>
+      <button type="submit" className="btn btn-primary mt-auto">
+        ارسال کد تایید
+      </button>
     </form>
   )
 }

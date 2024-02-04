@@ -1,8 +1,10 @@
 'use client'
 
-import { useAuthProvider } from '@/providers/AuthProvider'
 import clsx from 'clsx'
+import { useRouter } from 'next/navigation'
+import { MouseEvent, useEffect, useRef, useState } from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
+import { useAuthContext } from '@/providers/AuthProvider'
 
 type Inputs = {
   code: string
@@ -15,21 +17,45 @@ export default function VerifyPage() {
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>()
-  const { phone } = useAuthProvider()
+  const router = useRouter()
+  const { phone } = useAuthContext()
+  const [timer, setTimer] = useState(3)
 
   const onFormSubmit: SubmitHandler<Inputs> = (data) => {
     clearErrors()
   }
+
+  const editPhoneNumber = (e: MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
+
+    router.replace('/accounts/register')
+  }
+
+  const retry = () => {}
+
+  useEffect(() => {
+    const timerTimeout = setTimeout(() => {
+      setTimer((prevTimer) => (prevTimer > 0 ? prevTimer - 1 : 0))
+    }, 1000)
+
+    return () => clearTimeout(timerTimeout)
+  }, [timer])
 
   return (
     <form
       onSubmit={handleSubmit(onFormSubmit)}
       className="flex flex-col h-[100vh] p-6"
     >
-      <h1 className="font-bold text-2xl mt-8">کد تایید</h1>
+      <h1 className="font-bold text-2xl mt-8">تایید حساب</h1>
       <span className="mt-2 text-gray-600">
-        کد تایید رو به شماره «{phone}» ارسال کردیم.{' '}
-        <button className="btn btn-link">ویرایش شماره همراه</button>
+        کد تایید رو به شماره «{phone}» فرستادیم. شماره اشتباهه؟{' '}
+        <a
+          href="/accounts/register"
+          className="text-primary"
+          onClick={editPhoneNumber}
+        >
+          ویرایش
+        </a>
       </span>
 
       <label className="form-control w-full max-w-xs mt-12">
@@ -63,7 +89,15 @@ export default function VerifyPage() {
       </label>
 
       <button className="btn btn-primary mt-auto">بررسی کد تایید</button>
-      <button className="btn btn-ghost mt-2">ارسال مجدد</button>
+
+      <button
+        type="button"
+        disabled={timer > 0}
+        className="btn btn-ghost mt-2"
+        onClick={retry}
+      >
+        ارسال مجدد {timer > 0 ? `(${timer})` : null}
+      </button>
     </form>
   )
 }
