@@ -1,8 +1,8 @@
 import 'swiper/css'
 import './globals.css'
+import Providers from '@/providers'
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
-import AuthProvider from '@/providers/AuthProvider'
 
 const Estedad = localFont({
   src: '../public/static/fonts/Estedad/Estedad-FD.woff2',
@@ -43,7 +43,7 @@ function RootLayout({ children }: RootLayoutTypes) {
       </head>
 
       <body className={Estedad.className}>
-        <AuthProvider>{children}</AuthProvider>
+        <Providers>{children}</Providers>
       </body>
     </html>
   )
