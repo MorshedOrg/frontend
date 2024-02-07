@@ -27,14 +27,16 @@ export default function VerifyPage() {
   const onFormSubmit: SubmitHandler<Inputs> = async (data) => {
     clearErrors()
 
-    verifyOtpMutaion.mutate(
-      { otpCode: data.code, otpSession: otpSession! },
-      {
-        onSuccess: () => {
-          router.push('/accounts/new')
-        },
-      }
-    )
+    router.push('/accounts/new')
+
+    // verifyOtpMutaion.mutate(
+    //   { otpCode: data.code, otpSession: otpSession! },
+    //   {
+    //     onSuccess: () => {
+    //       router.push('/accounts/new')
+    //     },
+    //   }
+    // )
   }
 
   const editPhoneNumber = (e: MouseEvent<HTMLAnchorElement>) => {
@@ -78,7 +80,7 @@ export default function VerifyPage() {
         <input
           dir="ltr"
           type="number"
-          placeholder="1234"
+          placeholder="123456"
           {...register('code', {
             required: 'این مورد الزامیست',
             pattern: {

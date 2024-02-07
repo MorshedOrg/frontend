@@ -1,6 +1,7 @@
 'use client'
 
 import clsx from 'clsx'
+import Link from 'next/link'
 import { useMemo } from 'react'
 import { useRouter } from 'next/navigation'
 import { useSendOtp } from '../services/mutations'
@@ -30,8 +31,8 @@ export default function RegisterPage() {
       { phone: data.phone },
       {
         onSuccess: (result) => {
-          setPhone?.(data.phone)
-          setOtpSession?.(result.otpSession)
+          setPhone(data.phone)
+          setOtpSession(result.otpSession)
 
           router.push('/accounts/verify')
         },
@@ -82,6 +83,10 @@ export default function RegisterPage() {
       <button type="submit" className="btn btn-primary mt-auto">
         ارسال کد تایید
       </button>
+
+      <Link href="/accounts/login" className="btn btn-ghost mt-2">
+        ورود
+      </Link>
     </form>
   )
 }
