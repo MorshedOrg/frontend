@@ -3,6 +3,7 @@
 import clsx from 'clsx'
 import { useMemo } from 'react'
 import { useRouter } from 'next/navigation'
+import { useSendOtp } from '../services/mutations'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { useAuthContext } from '@/providers/AuthProvider'
 
@@ -12,7 +13,7 @@ type Inputs = {
 
 export default function RegisterPage() {
   const router = useRouter()
-  const { phone, setPhone } = useAuthContext()
+  const { phone, setPhone, setOtpSession } = useAuthContext()
   const {
     register,
     clearErrors,
@@ -20,10 +21,22 @@ export default function RegisterPage() {
     formState: { errors },
   } = useForm<Inputs>({ defaultValues: useMemo(() => ({ phone }), [phone]) })
 
-  const onFormSubmit: SubmitHandler<Inputs> = (data) => {
+  const sendOtpMutation = useSendOtp()
+
+  const onFormSubmit: SubmitHandler<Inputs> = async (data) => {
     clearErrors()
-    setPhone?.('09212190039')
-    router.push('/accounts/verify')
+
+    sendOtpMutation.mutate(
+      { phone: data.phone },
+      {
+        onSuccess: (result) => {
+          setPhone?.(data.phone)
+          setOtpSession?.(result.otpSession)
+
+          router.push('/accounts/verify')
+        },
+      }
+    )
   }
 
   return (
