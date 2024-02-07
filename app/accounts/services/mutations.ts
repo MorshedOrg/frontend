@@ -1,4 +1,4 @@
-import { sendOtp, verifyOtp } from './apis'
+import { register, sendOtp, verifyOtp } from './apis'
 import { useMutation } from '@tanstack/react-query'
 
 export function useSendOtp() {
@@ -16,6 +16,17 @@ export function useVerifyOtp() {
   return useMutation({
     mutationKey: ['verify-otp'],
     mutationFn: verifyOtp,
+
+    onError: (error) => {
+      console.error('Mutaion Error', error)
+    },
+  })
+}
+
+export function useRegister() {
+  return useMutation({
+    mutationKey: ['register'],
+    mutationFn: register,
 
     onError: (error) => {
       console.error('Mutaion Error', error)
