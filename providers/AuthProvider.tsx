@@ -4,7 +4,9 @@ import { Dispatch, ReactNode, SetStateAction, createContext, useContext, useMemo
 
 interface AuthContextValues {
   phone?: string
+  otpSession?: string
   setPhone?: Dispatch<SetStateAction<string>>
+  setOtpSession?: Dispatch<SetStateAction<string>>
 }
 
 const AuthContext = createContext<AuthContextValues>({})
@@ -25,13 +27,16 @@ type AuthProviderProps = {
 
 export default function AuthProvider({ children }: AuthProviderProps) {
   const [phone, setPhone] = useState('')
+  const [otpSession, setOtpSession] = useState('')
 
   const values = useMemo(
     () => ({
       phone,
       setPhone,
+      otpSession,
+      setOtpSession,
     }),
-    [phone, setPhone]
+    [otpSession, phone]
   )
 
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>
