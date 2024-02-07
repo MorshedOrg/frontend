@@ -2,9 +2,10 @@
 
 import clsx from 'clsx'
 import { useRouter } from 'next/navigation'
-import { MouseEvent, useEffect, useRef, useState } from 'react'
+import { MouseEvent, useEffect, useState } from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { useAuthContext } from '@/providers/AuthProvider'
+import { useVerifyOtp } from '../services/mutations'
 
 type Inputs = {
   code: string
@@ -18,11 +19,22 @@ export default function VerifyPage() {
     formState: { errors },
   } = useForm<Inputs>()
   const router = useRouter()
-  const { phone } = useAuthContext()
   const [timer, setTimer] = useState(3)
+  const { phone, otpSession } = useAuthContext()
 
-  const onFormSubmit: SubmitHandler<Inputs> = (data) => {
+  const verifyOtpMutaion = useVerifyOtp()
+
+  const onFormSubmit: SubmitHandler<Inputs> = async (data) => {
     clearErrors()
+
+    verifyOtpMutaion.mutate(
+      { otpCode: data.code, otpSession: otpSession! },
+      {
+        onSuccess: () => {
+          router.push('/accounts/new')
+        },
+      }
+    )
   }
 
   const editPhoneNumber = (e: MouseEvent<HTMLAnchorElement>) => {
@@ -70,7 +82,7 @@ export default function VerifyPage() {
           {...register('code', {
             required: 'این مورد الزامیست',
             pattern: {
-              value: new RegExp('^\\d{4}$'),
+              value: new RegExp('^\\d{6}$'),
               message: 'کد تایید وارد شده اشتباه است',
             },
           })}
