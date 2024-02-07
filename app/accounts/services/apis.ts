@@ -29,3 +29,21 @@ export async function verifyOtp(payload: {
 
   return data.data
 }
+
+export async function register(payload: {
+  otpSession: string
+  username: string
+  firstName: string
+  lastName: string
+  password: string
+}) {
+  const { data } = await instance.post('/v1/auth/sign-up', {
+    username: payload.username,
+    firstName: payload.firstName,
+    lastName: payload.lastName,
+    password: payload.password,
+    otpSession: payload.otpSession,
+  })
+
+  return data.data
+}
