@@ -2,8 +2,10 @@
 
 import clsx from 'clsx'
 import { useRouter } from 'next/navigation'
+import { useLogin } from '../services/mutations'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { useAuthContext } from '@/providers/AuthProvider'
+import Link from 'next/link'
 
 type Inputs = {
   phone: string
@@ -12,23 +14,37 @@ type Inputs = {
 
 export default function LoginPage() {
   const router = useRouter()
-  const { phone, setPhone } = useAuthContext()
+  const { setAccessToken, setRefreshToken } = useAuthContext()
   const {
-    watch,
     register,
     clearErrors,
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>()
 
+  const loginMutation = useLogin()
+
   const onFormSubmit: SubmitHandler<Inputs> = (data) => {
     clearErrors()
-    setPhone?.('09212190039')
-    router.push('/accounts/verify')
+
+    loginMutation.mutate(
+      { phone: data.phone, password: data.password },
+      {
+        onSuccess: (result) => {
+          setAccessToken(result.accessToken)
+          setRefreshToken(result.refreshToken)
+
+          router.push('/')
+        },
+      }
+    )
   }
 
   return (
-    <form onSubmit={handleSubmit(onFormSubmit)} className="flex flex-col h-screen p-6">
+    <form
+      onSubmit={handleSubmit(onFormSubmit)}
+      className="flex flex-col h-screen p-6"
+    >
       <h1 className="font-bold text-2xl mt-8">ورود</h1>
       <span className="mt-2 text-gray-600">
         برای ورود می‌تونی از شماره همراه و رمز عبوری که قبلا باهاشون ثبت نام
@@ -93,6 +109,10 @@ export default function LoginPage() {
       <button type="submit" className="btn btn-primary mt-auto">
         ورود
       </button>
+
+      <Link href="/accounts/register" className="btn btn-ghost mt-2">
+        ثبت نام
+      </Link>
     </form>
   )
 }
