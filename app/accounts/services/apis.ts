@@ -47,3 +47,19 @@ export async function register(payload: {
 
   return data.data
 }
+
+export async function login(payload: { phone: string; password: string }) {
+  type LoginApi = {
+    data: {
+      accessToken: string
+      refreshToken: string
+    }
+  }
+
+  const { data } = await instance.post<LoginApi>('v1/auth/sign-in', {
+    phoneNumber: payload.phone,
+    password: payload.password,
+  })
+
+  return data.data
+}
